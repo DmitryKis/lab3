@@ -3,7 +3,7 @@ OBJ = g++ $(CFLAGS) -c $< -o $@
 
 .PHONY: clean
 
-all:folder folder2 bin/geometry.exe bin/test
+all:folder folder2 bin/geometry.exe
 
 folder:
 	mkdir -p build 
@@ -41,8 +41,3 @@ build/proverka.o: src/proverka.cpp src/front.h
 build/testing.o: src/testing.cpp src/front.h
 	$(OBJ)
 
-bin/testing: build/testing.o
-	g++ -Wall -Werror build/testing.o -o bin/testing
-
-build/testing.o: src/testing.cpp 
-	g++ -Wall -Werror -c src/testing.cpp -o build/testing.o -Ithirdparty
